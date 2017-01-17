@@ -1,6 +1,6 @@
 #! /bin/sh
 #
-# Example panel for lemonbar
+# Panel for lemonbar
 
 . panel_colors
 
@@ -14,7 +14,7 @@ battery() {
     BATC=/sys/class/power_supply/BAT1/capacity
     BATS=/sys/class/power_supply/BAT1/status
 
-    test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+    test "`cat $BATS`" = "Charging" && echo -n $(icon f1e6) || echo -n $(icon f240)
     sed -n p $BATC
 }
 
@@ -23,7 +23,7 @@ volume() {
 }
 
 power() {
-    echo -n "%{A:systemctl poweroff:}%{A3:systemctl reboot:} Power %{A}%{A}"
+	echo -n "%{A:systemctl poweroff:}%{A3:systemctl reboot:} $(icon f011) %{A}%{A}"
 }
 
 while read -r line ; do
@@ -113,8 +113,8 @@ while read -r line ; do
 			;;
 	esac
 
-	battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}Battery: $(battery)% %{B-}%{F-}"
-	volume="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}Volume: $(volume)% %{B-}%{F-}"
+	battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}$(battery)% %{B-}%{F-}"
+	volume="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}$(icon f028) $(volume)% %{B-}%{F-}"
 	power="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(power) %{B-}%{F-}"
 
 	bar=""
