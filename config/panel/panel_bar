@@ -14,7 +14,7 @@ battery() {
     BATC=/sys/class/power_supply/BAT1/capacity
     BATS=/sys/class/power_supply/BAT1/status
 
-    test "`cat $BATS`" = "Charging" && echo -n $(icon f1e6) || echo -n $(icon f240)
+    test "`cat $BATS`" = "Charging" && echo -n $(icon f1e6)" " || echo -n $(icon f240)" "
     sed -n p $BATC
 }
 
@@ -113,14 +113,14 @@ while read -r line ; do
 			;;
 	esac
 
-	battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}$(battery)% %{B-}%{F-}"
-	volume="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}$(icon f028) $(volume)% %{B-}%{F-}"
+	battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(battery)% %{B-}%{F-}"
+	volume="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(icon f028) $(volume)% %{B-}%{F-}"
 	power="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(power) %{B-}%{F-}"
 
 	bar=""
 	i=0
 	while (($i < $num_mon)); do
-	    bar="${bar} %{S${i}} %{l}${wm}${title}%{c}${clock}%{r}${volume}${battery}${power}"
+	    bar="${bar} %{S${i}} %{l}${wm}${title} %{c}${clock} %{r}${volume}${battery}${power}"
 	    let i=$i+1
 	done
 
