@@ -11,11 +11,15 @@ icon() {
 }
 
 battery() {
-    BATC=/sys/class/power_supply/BAT1/capacity
-    BATS=/sys/class/power_supply/BAT1/status
+    prefix="$(icon f240)"
+    batc=$(cat /sys/class/power_supply/BAT1/capacity)
+    bats=$(cat /sys/class/power_supply/BAT1/status)
+	
+    if [ "$bats" = "Charging" ]; then
+	    prefix="$(icon f1e6)"
+    fi
 
-    test "`cat $BATS`" = "Charging" && echo -n $(icon f1e6)" " || echo -n $(icon f240)" "
-    sed -n p $BATC
+    echo "$prefix" "$batc"
 }
 
 volume() {
@@ -105,7 +109,7 @@ while read -r line ; do
 						;;
 					[LTG]*)
 						# layout, state and flags
-						wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name} %{B-}%{F-}"
+						wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name}%{B-}%{F-}"
 						;;
 				esac
 				shift
