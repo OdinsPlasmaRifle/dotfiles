@@ -15,7 +15,7 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &
 echo -ne "T%s\n" | xargs -0 xtitle -sf > "$PANEL_FIFO" &
-clock -sf 'S%H:%M - %d %b %Y' > "$PANEL_FIFO" &
+clock -sf 'S%d %b, %H:%M' > "$PANEL_FIFO" &
 
 panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -f "$PANEL_ICONS" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
