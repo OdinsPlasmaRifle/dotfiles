@@ -42,7 +42,7 @@ xrandr --output HDMI2 --auto --right-of eDP1
 seq 0 1 | xargs -l1 -I@ compton --config $HOME/.config/compton/compton.conf -b -d :0.@
 
 # set wallpaper
-feh --bg-scale ~/Pictures/Wallpapers/flat-wallpaper-1.png
+feh --bg-scale ~/pictures/wallpapers/wallpaper_1.jpg
 
 # start bspwm.
 sxhkd &
