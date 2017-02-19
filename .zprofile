@@ -1,7 +1,7 @@
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=24
-PANEL_FONT="Monospace:size=14"
-PANEL_ICONS="FontAwesome:size=16"
+PANEL_FONT="xft:Monospace:size=14"
+PANEL_ICONS="xft:fontawesome:size=1"
 PANEL_WM_NAME=bspwm_panel
 
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_ICONS PANEL_WM_NAME
