@@ -1,8 +1,8 @@
 #! /bin/sh
 
 # monitors
-bspc monitor eDP1 -n A -d 1 2 3 4 5
-bspc monitor HDMI2 -n B -d 6 7 8 9 10
+bspc monitor eDP-1 -n A -d 1 2 3 4 5
+bspc monitor HDMI-2 -n B -d 6 7 8 9 10
 
 # dimensions
 bspc config border_width         3
