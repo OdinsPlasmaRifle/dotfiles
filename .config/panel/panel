@@ -1,8 +1,15 @@
 #! /bin/sh
 
+function clock {
+    while true; do
+        date +"S%d %b, %R"
+	sleep 1
+    done
+}
+
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
-   printf "%s\n" "The panel is already running." >&2
-   exit 1
+    printf "%s\n" "The panel is already running." >&2
+    exit 1
 fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
@@ -15,7 +22,7 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &
 echo -ne "T%s\n" | xargs -0 xtitle -sf > "$PANEL_FIFO" &
-date +'S%d %b, %R' > "$PANEL_FIFO" &
+clock  > "$PANEL_FIFO" &
 
 panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -f "$PANEL_ICONS" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
