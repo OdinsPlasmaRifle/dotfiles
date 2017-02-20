@@ -35,8 +35,8 @@ xset +fp /usr/share/fonts/
 xset fp rehash
 
 # monitors
-xrandr --output eDP1 --auto --primary
-xrandr --output HDMI2 --auto --right-of eDP1
+xrandr --output eDP-1 --auto --primary
+xrandr --output HDMI-2 --auto --right-of eDP1
 
 # compositing
 seq 0 1 | xargs -l1 -I@ compton --config $HOME/.config/compton/compton.conf -b -d :0.@
