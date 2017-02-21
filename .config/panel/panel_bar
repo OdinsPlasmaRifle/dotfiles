@@ -27,7 +27,11 @@ volume() {
 }
 
 power() {
-	echo -n "%{A:systemctl poweroff:}%{A3:systemctl reboot:} $(icon f011) %{A}%{A}"
+    echo -n "%{A:systemctl poweroff:}%{A3:systemctl reboot:}$(icon f011)%{A}%{A}"
+}
+
+lock() {
+    echo -n "%{A:slock:}$(icon f023)%{A}"
 }
 
 while read -r line ; do
@@ -120,11 +124,12 @@ while read -r line ; do
 	battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(battery)% %{B-}%{F-}"
 	volume="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(icon f028) $(volume)% %{B-}%{F-}"
 	power="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(power) %{B-}%{F-}"
+	lock="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(lock) %{B-}%{F-}"
 
 	bar=""
 	i=0
 	while (($i < $num_mon)); do
-	    bar="${bar} %{S${i}} %{l}${wm}${title} %{c}${clock} %{r}${volume}${battery}${power}"
+	    bar="${bar} %{S${i}} %{l}${wm}${title} %{c}${clock} %{r}${volume}${battery}${lock}${power}"
 	    let i=$i+1
 	done
 
