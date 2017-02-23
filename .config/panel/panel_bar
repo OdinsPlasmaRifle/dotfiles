@@ -11,12 +11,22 @@ icon() {
 }
 
 battery() {
-    prefix="$(icon f240)"
+    prefix="$(icon f1e6)"
     batc=$(cat /sys/class/power_supply/BAT1/capacity)
     bats=$(cat /sys/class/power_supply/BAT1/status)
 	
-    if [ "$bats" = "Charging" ]; then
-	    prefix="$(icon f1e6)"
+    if [ "$bats" != "Charging" ]; then
+	if [ $batc -gt 75 ]; then
+	    prefix="$(icon f240)"
+	elif [ $batc -gt 50 ]; then
+	    prefix="$(icon f241)"
+	elif [ $batc -gt 25 ]; then
+	    prefix="$(icon f242)"
+	elif [ $batc -gt 0 ]; then
+	    prefix="$(icon f243)"
+    	else
+	    prfix="$(icon f244)"
+	fi
     fi
 
     echo "$prefix" "$batc"
