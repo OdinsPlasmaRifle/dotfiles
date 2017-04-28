@@ -2,7 +2,7 @@
 #
 # Panel for lemonbar
 
-. panel_colors
+source panel_config
 
 num_mon=$(bspc query -M | wc -l)
 

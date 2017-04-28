@@ -1,5 +1,7 @@
 #! /bin/sh
 
+source panel_config
+
 function clock {
     while true; do
         date +"S%d %b, %R"
@@ -16,8 +18,6 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
-
-. panel_colors
 
 bspc config top_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &

@@ -1,3 +1,13 @@
+# General Config
+
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=24
+PANEL_FONT="Monospace:size=14"
+PANEL_ICONS="FontAwesome:size=16"
+PANEL_WM_NAME=bspwm_panel
+
+# Color Config
+
 COLOR_DEFAULT_FG="#a7a5a5"
 COLOR_DEFAULT_BG="#333232"
 COLOR_MONITOR_FG="#8dbcdf"
