@@ -56,7 +56,7 @@
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     #geometry = "250x10+570+370"
-    geometry = "0x5"
+    geometry = "x5"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
