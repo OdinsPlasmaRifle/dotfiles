@@ -1,9 +1,9 @@
 !! fonts 
 
 ! to find xft name of a font use "fc-list | grep"
-URxvt*font: xft:Monospace:pixelsize=20,xft:fontawesome:size=1
-URxvt*boldFont: xft:Monospace:pixelsize=20,xft:fontawesome:size=1
-URxvt*letterSpace: -1
+URxvt*font: xft:Hack-Regular:pixelsize=18,xft:fontawesome:size=1
+URxvt*boldFont: xft:Hack-Bold:pixelsize=18,xft:fontawesome:size=1
+URxvt*italicFont: xft:Hack-RegularOblique:pixelsize=18,xft:fontawesome:size=1
 
 ! urxvt
 URxvt*buffered: true
@@ -95,4 +95,3 @@ URxvt.matcher.button: 1
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
-

@@ -1,9 +1,13 @@
 # Environment Variables
 export VISUAL="vim"
 export GOPATH=$HOME/go
+export CONDAPATH=/opt/anaconda
+
+# Get extra env vars
+source .projects
 
 # Path configuration
-export PATH="$PATH:$GOPATH/bin:$HOME/.config/panel:/opt/anaconda/bin"
+export PATH="$PATH:$HOME/.config/panel:$GOPATH/bin:$CONDAPATH/bin:/usr/bin/protoc/"
 
 # Prompt configuration
 PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%3~%f %# '
@@ -24,3 +28,9 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 # End of lines added by compinstall
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
