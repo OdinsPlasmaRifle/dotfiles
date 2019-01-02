@@ -47,3 +47,4 @@ feh --bg-scale ~/pictures/wallpapers/wallpaper_1.jpg
 # start bspwm.
 sxhkd &
 exec bspwm
+

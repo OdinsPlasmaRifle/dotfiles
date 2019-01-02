@@ -1,0 +1,7 @@
+PANEL_WM_NAME=bspwm_panel
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=24
+PANEL_FONT="Monospace:size=14"
+PANEL_ICONS="FontAwesome:size=16"
+PANEL_WM_NAME=bspwm_panel
+
