@@ -39,7 +39,7 @@ xrandr --output eDP-1 --auto --primary
 xrandr --output HDMI-2 --auto --right-of eDP1
 
 # compositing
-seq 0 1 | xargs -l1 -I@ compton --config $HOME/.config/compton/compton.conf -b -d :0.@
+seq 0 1 | xargs -l1 -I@ compton --config $HOME/.config/compton/compton.conf -d :0.@
 
 # set wallpaper
 feh --bg-scale ~/pictures/wallpapers/wallpaper_1.jpg
